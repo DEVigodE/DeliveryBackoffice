@@ -5,7 +5,7 @@ mixin Loader<T extends StatefulWidget> on State<T> {
   bool isOpen = false;
 
   void showLoader() {
-    if (!isOpen) {
+    if (isOpen == false) {
       isOpen = true;
       showDialog(
         barrierDismissible: false,
@@ -20,7 +20,7 @@ mixin Loader<T extends StatefulWidget> on State<T> {
   void hideLoader() {
     if (isOpen) {
       isOpen = false;
-      Navigator.of(context).pop();
+      Navigator.of(context, rootNavigator: true).pop();
     }
   }
 
