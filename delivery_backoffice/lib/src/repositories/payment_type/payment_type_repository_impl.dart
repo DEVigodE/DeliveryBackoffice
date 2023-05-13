@@ -38,6 +38,7 @@ class PaymentTypeRepositoryImpl implements PaymentTypeRepository {
       final paymentResult = await _dio.auth().get(
             '/payment-types/$id',
           );
+
       return PaymentTypeModel.fromMap(paymentResult.data);
     } on DioError catch (e, s) {
       log('Erro ao buscar forma de pagamento $id', error: e, stackTrace: s);

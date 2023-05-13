@@ -8,17 +8,17 @@ class BaseHeader extends StatelessWidget {
   final ValueChanged<String>? searchChanged;
   final String buttonLabel;
   final VoidCallback? buttonPressed;
-  final bool showButton;
+  final bool addButton;
   final Widget? filterWidget;
 
   const BaseHeader({
     Key? key,
     required this.title,
     this.searchChanged,
-    required this.buttonLabel,
+    this.buttonLabel = '',
     this.buttonPressed,
     this.filterWidget,
-    this.showButton = true,
+    this.addButton = true,
   }) : super(key: key);
 
   @override
@@ -65,7 +65,7 @@ class BaseHeader extends StatelessWidget {
               ),
             ),
             Visibility(
-              visible: showButton,
+              visible: addButton,
               replacement: const SizedBox.shrink(),
               child: SizedBox(
                 width: constraints.maxWidth * .15,

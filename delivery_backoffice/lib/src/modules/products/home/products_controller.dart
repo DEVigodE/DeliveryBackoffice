@@ -6,7 +6,7 @@ import 'package:mobx/mobx.dart';
 
 part 'products_controller.g.dart';
 
-enum ProductStateStatus { initial, loading, loaded, error }
+enum ProductStateStatus { initial, loading, loaded, error, addOrUpdateProduct }
 
 class ProductsController = ProductsControllerBase with _$ProductsController;
 
@@ -24,6 +24,9 @@ abstract class ProductsControllerBase with Store {
   @readonly
   String? _filterName;
 
+  @readonly
+  ProductModel? _productSelected;
+
   Future<void> filterByName(String name) async {
     _filterName = name;
     await loadProducts();
@@ -40,5 +43,21 @@ abstract class ProductsControllerBase with Store {
       log('Erro ao carregar os produtos', error: e, stackTrace: s);
       _status = ProductStateStatus.error;
     }
+  }
+
+  @action
+  Future<void> addProduct() async {
+    _status = ProductStateStatus.loading;
+    await Future.delayed(Duration.zero);
+    _productSelected = null;
+    _status = ProductStateStatus.addOrUpdateProduct;
+  }
+
+  @action
+  Future<void> editProduct(ProductModel productModel) async {
+    _status = ProductStateStatus.loading;
+    await Future.delayed(Duration.zero);
+    _productSelected = productModel;
+    _status = ProductStateStatus.addOrUpdateProduct;
   }
 }
