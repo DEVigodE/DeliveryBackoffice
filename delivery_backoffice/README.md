@@ -1,16 +1,7 @@
-# delivery_backoffice
+Para testar o projeto, que usa um simples backend de json, siga os passos abaixo:
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    1 - Instale o backend -> https://pub.dev/packages/json_rest_server
+        1.1 - Entre na pasta "backend" pelo cmd para iniciar o backend
+        1.2 - Na path do backend rodo o comando "jrs run" para iniciar o backend
+        1.3 - devera aparecer no cmd "Json Rest Server Server started, responding on:" e o ip que ele estará rodando algo como http://localhost:8080/
+        1.4 - Voce pode ver o usuario cadastrado no pasata do backend no arquivo database.json de padrão está (email: igor@email.com, senha: 123123)
